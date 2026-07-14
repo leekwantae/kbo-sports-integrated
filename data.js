@@ -1,5 +1,5 @@
 window.SPORTS_DATA = {
-  "updatedAt": "2026-07-14T10:21:57+09:00",
+  "updatedAt": "2026-07-14T14:47:42+09:00",
   "queryRange": {
     "startDate": "2026-07-14",
     "endDate": "2026-10-14",
@@ -10,42 +10,42 @@ window.SPORTS_DATA = {
       "team": "LG트윈스",
       "success": true,
       "count": 16,
-      "checkedAt": "2026-07-14T10:21:45+09:00",
+      "checkedAt": "2026-07-14T14:47:29+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "한화이글스",
       "success": true,
       "count": 22,
-      "checkedAt": "2026-07-14T10:21:48+09:00",
+      "checkedAt": "2026-07-14T14:47:32+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "삼성라이온즈",
       "success": true,
       "count": 22,
-      "checkedAt": "2026-07-14T10:21:50+09:00",
+      "checkedAt": "2026-07-14T14:47:35+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "KT wiz",
       "success": true,
       "count": 16,
-      "checkedAt": "2026-07-14T10:21:53+09:00",
+      "checkedAt": "2026-07-14T14:47:37+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "KIA타이거즈",
       "success": true,
       "count": 21,
-      "checkedAt": "2026-07-14T10:21:55+09:00",
+      "checkedAt": "2026-07-14T14:47:39+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "울산웨일즈",
       "success": true,
       "count": 9,
-      "checkedAt": "2026-07-14T10:21:56+09:00",
+      "checkedAt": "2026-07-14T14:47:40+09:00",
       "message": "API 조회 성공"
     }
   ],
@@ -349,8 +349,8 @@ window.SPORTS_DATA = {
       "venue": "잠실야구장",
       "title": "",
       "league": "2026 신한 SOL KBO 리그",
-      "booking": "2026-07-14 11:00",
-      "reserveButtonStatus": "BEFORE",
+      "booking": "예매중",
+      "reserveButtonStatus": "ON_SALE",
       "scheduleId": "1427853844",
       "productId": "61881",
       "link": "https://www.ticketlink.co.kr/sports/137/59",
@@ -366,8 +366,8 @@ window.SPORTS_DATA = {
       "venue": "KIA 챔피언스필드",
       "title": "",
       "league": "2026 신한 SOL KBO 리그",
-      "booking": "2026-07-14 11:00",
-      "reserveButtonStatus": "BEFORE",
+      "booking": "예매중",
+      "reserveButtonStatus": "ON_SALE",
       "scheduleId": "1868753964",
       "productId": "62036",
       "link": "https://www.ticketlink.co.kr/sports/137/58",
