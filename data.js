@@ -1,5 +1,5 @@
 window.SPORTS_DATA = {
-  "updatedAt": "2026-07-15T01:48:06+09:00",
+  "updatedAt": "2026-07-15T08:27:22+09:00",
   "queryRange": {
     "startDate": "2026-07-15",
     "endDate": "2026-10-15",
@@ -10,42 +10,42 @@ window.SPORTS_DATA = {
       "team": "LG트윈스",
       "success": true,
       "count": 17,
-      "checkedAt": "2026-07-15T01:47:53+09:00",
+      "checkedAt": "2026-07-15T08:27:13+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "한화이글스",
       "success": true,
       "count": 23,
-      "checkedAt": "2026-07-15T01:47:57+09:00",
+      "checkedAt": "2026-07-15T08:27:15+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "삼성라이온즈",
       "success": true,
       "count": 23,
-      "checkedAt": "2026-07-15T01:47:59+09:00",
+      "checkedAt": "2026-07-15T08:27:16+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "KT wiz",
       "success": true,
       "count": 17,
-      "checkedAt": "2026-07-15T01:48:01+09:00",
+      "checkedAt": "2026-07-15T08:27:18+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "KIA타이거즈",
       "success": true,
       "count": 22,
-      "checkedAt": "2026-07-15T01:48:04+09:00",
+      "checkedAt": "2026-07-15T08:27:20+09:00",
       "message": "API 조회 성공"
     },
     {
       "team": "울산웨일즈",
       "success": true,
       "count": 9,
-      "checkedAt": "2026-07-15T01:48:05+09:00",
+      "checkedAt": "2026-07-15T08:27:21+09:00",
       "message": "API 조회 성공"
     }
   ],
