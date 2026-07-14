@@ -1,0 +1,16 @@
+KBO 통합 경기일정 프로젝트
+
+포함 데이터
+- 티켓링크: LG, 한화, 삼성, KT, KIA, 울산 웨일즈
+- NOL 티켓: 두산, 키움
+
+업로드 방법
+1. GitHub에서 새 저장소 kbo-sports-integrated를 만듭니다.
+2. ZIP의 내용물을 저장소 최상위에 그대로 업로드합니다.
+3. Settings → Actions → General → Workflow permissions에서 Read and write permissions를 선택합니다.
+4. Actions → KBO 통합 경기정보 자동 갱신 → Run workflow를 누릅니다.
+5. Settings → Pages → Deploy from a branch → main / (root)를 선택합니다.
+
+주의
+- ZIP 파일 자체를 올리는 것이 아니라 ZIP을 푼 안쪽 파일과 .github 폴더를 올립니다.
+- 기존 sports-schedule-new와 nol-sports 저장소는 삭제하거나 수정하지 않습니다.

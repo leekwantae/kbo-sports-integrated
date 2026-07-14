@@ -1,0 +1,47 @@
+{
+  "rangeDays": 92,
+  "sources": [
+    {
+      "sport": "baseball",
+      "categoryId": 137,
+      "teamId": 59,
+      "team": "LG트윈스",
+      "pageUrl": "https://www.ticketlink.co.kr/sports/137/59"
+    },
+    {
+      "sport": "baseball",
+      "categoryId": 137,
+      "teamId": 63,
+      "team": "한화이글스",
+      "pageUrl": "https://www.ticketlink.co.kr/sports/137/63"
+    },
+    {
+      "sport": "baseball",
+      "categoryId": 137,
+      "teamId": 57,
+      "team": "삼성라이온즈",
+      "pageUrl": "https://www.ticketlink.co.kr/sports/137/57"
+    },
+    {
+      "sport": "baseball",
+      "categoryId": 137,
+      "teamId": 62,
+      "team": "KT wiz",
+      "pageUrl": "https://www.ticketlink.co.kr/sports/137/62"
+    },
+    {
+      "sport": "baseball",
+      "categoryId": 137,
+      "teamId": 58,
+      "team": "KIA타이거즈",
+      "pageUrl": "https://www.ticketlink.co.kr/sports/137/58"
+    },
+    {
+      "sport": "baseball",
+      "categoryId": 137,
+      "teamId": 721,
+      "team": "울산웨일즈",
+      "pageUrl": "https://www.ticketlink.co.kr/sports/137/721"
+    }
+  ]
+}

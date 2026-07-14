@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KBO 경기·예매 통합 일정</title>
+<meta name="theme-color" content="#2457d6">
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--line:#dde5ef;--text:#172033;--muted:#6b778c;--primary:#2457d6;--primary-soft:#eaf0ff;--nol:#7c3aed;--nol-soft:#f1eafe;--ticket:#0b77db;--ticket-soft:#e6f3ff;--green:#0f9f6e;--orange:#e67e22;--red:#d33;--shadow:0 12px 34px rgba(35,52,86,.08)}
+*{box-sizing:border-box}body{margin:0;min-width:320px;background:radial-gradient(circle at top left,rgba(36,87,214,.08),transparent 32%),var(--bg);color:var(--text);font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,select,input{font:inherit}.wrap{width:min(1440px,calc(100% - 32px));margin:auto;padding:30px 0 50px}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px}.hero h1{margin:0 0 8px;font-size:clamp(28px,4vw,43px);letter-spacing:-1.8px}.hero p{margin:0;color:var(--muted);font-size:15px;line-height:1.65}
+.refresh-group{display:flex;gap:10px;flex-shrink:0}.btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:12px;padding:11px 16px;cursor:pointer;font-weight:800;box-shadow:0 4px 14px rgba(35,52,86,.05)}.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.source-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}.source-tab{position:relative;border:1px solid var(--line);background:rgba(255,255,255,.88);border-radius:16px;padding:17px 18px;text-align:left;cursor:pointer;box-shadow:0 7px 22px rgba(35,52,86,.05)}.source-tab.active{border:2px solid var(--primary);padding:16px 17px;background:#fff}.source-tab strong{display:block;font-size:17px;margin-bottom:4px}.source-tab span{color:var(--muted);font-size:13px}.source-tab .dot{width:10px;height:10px;border-radius:50%;position:absolute;right:16px;top:16px;background:var(--primary)}.source-tab.nol .dot{background:var(--nol)}.source-tab.ticket .dot{background:var(--ticket)}
+.team-section,.filter-card,.table-card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.team-section{padding:20px;margin-bottom:18px}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:15px}.section-head h2{margin:0;font-size:18px}.legend{display:flex;gap:12px;color:var(--muted);font-size:13px}.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.teams{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.team{min-height:78px;padding:13px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;text-align:left}.team.active{border-color:var(--primary);background:var(--primary-soft);box-shadow:inset 0 0 0 1px var(--primary)}.team .badge{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:11px;font-weight:900;margin-bottom:8px}.badge.nol{color:var(--nol);background:var(--nol-soft)}.badge.ticket{color:var(--ticket);background:var(--ticket-soft)}.badge.all{color:var(--primary);background:var(--primary-soft)}.team strong{display:block;font-size:14px;white-space:nowrap}
+.summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:18px}.summary-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 7px 22px rgba(35,52,86,.05)}.summary-card span{display:block;color:var(--muted);font-size:13px;margin-bottom:7px}.summary-card strong{font-size:27px}
+.filter-card{padding:17px;margin-bottom:18px}.filters{display:grid;grid-template-columns:1.25fr repeat(4,minmax(135px,.7fr));gap:10px}select,.search{width:100%;height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 12px;color:var(--text);outline:none}.status-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.pill{border:1px solid var(--line);border-radius:999px;background:#fff;padding:8px 13px;cursor:pointer;font-size:13px;font-weight:800}.pill.active{color:#fff;background:var(--primary);border-color:var(--primary)}
+.notice{margin:0 0 18px;padding:13px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.6}.notice.error{color:#9f1d1d;background:#fff5f5;border-color:#fecaca}
+.table-card{overflow:hidden}.table-top{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}.table-top strong{font-size:17px}.table-top span{color:var(--muted);font-size:13px}.table-scroll{overflow-x:auto}table{width:100%;min-width:1160px;border-collapse:collapse}th,td{padding:14px 12px;border-bottom:1px solid #edf1f6;text-align:center;font-size:13px;white-space:nowrap}th{color:#566278;background:#f8fafc;font-weight:900}td.match{text-align:left;font-size:14px;font-weight:800}.source-label{display:inline-block;min-width:70px;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:900}.source-label.nol{color:var(--nol);background:var(--nol-soft)}.source-label.ticket{color:var(--ticket);background:var(--ticket-soft)}.state{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900}.state.open{color:#087653;background:#e3f8f0}.state.soon{color:#b45b08;background:#fff1df}.reserve{display:inline-block;border:0;border-radius:9px;padding:8px 12px;color:#fff;background:var(--primary);font-weight:900;cursor:pointer;text-decoration:none}.star{border:0;background:transparent;font-size:20px;cursor:pointer}.empty{padding:45px!important;color:var(--muted)}.foot{display:flex;justify-content:space-between;gap:15px;margin-top:13px;color:var(--muted);font-size:12px}
+@media(max-width:1050px){.teams{grid-template-columns:repeat(4,minmax(0,1fr))}.summary{grid-template-columns:repeat(3,minmax(0,1fr))}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.search{grid-column:1/-1}}
+@media(max-width:700px){.wrap{width:min(100% - 20px,1440px);padding-top:20px}.hero{align-items:stretch;flex-direction:column}.refresh-group{width:100%}.refresh-group .btn{flex:1}.source-tabs{grid-template-columns:1fr}.teams{grid-template-columns:repeat(2,minmax(0,1fr))}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:1fr}.search{grid-column:auto}.section-head,.table-top,.foot{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<div><h1>⚾ KBO 경기·예매 통합 일정</h1><p>티켓링크 구단과 NOL 티켓의 두산·키움 일정을 한 화면에서 확인합니다.</p></div>
+<div class="refresh-group"><button class="btn" id="reloadBtn">화면 새로고침</button><button class="btn primary" id="strongReloadBtn">최신 정보 불러오기</button></div>
+</section>
+
+<section class="source-tabs">
+<button class="source-tab active" data-source="all"><i class="dot"></i><strong>전체 예매처</strong><span>티켓링크 + NOL 티켓 일정 통합</span></button>
+<button class="source-tab ticket" data-source="ticket"><i class="dot"></i><strong>티켓링크</strong><span>기존 티켓링크 등록 구단</span></button>
+<button class="source-tab nol" data-source="nol"><i class="dot"></i><strong>NOL 티켓</strong><span>두산 베어스 · 키움 히어로즈</span></button>
+</section>
+
+<section class="team-section">
+<div class="section-head"><h2>구단 선택</h2><div class="legend"><span><i style="background:var(--ticket)"></i>티켓링크</span><span><i style="background:var(--nol)"></i>NOL 티켓</span></div></div>
+<div class="teams" id="teamButtons"></div>
+</section>
+
+<section class="summary">
+<article class="summary-card"><span>전체 일정</span><strong id="totalCount">0</strong></article>
+<article class="summary-card"><span>예매중</span><strong id="openCount" style="color:var(--green)">0</strong></article>
+<article class="summary-card"><span>예매 예정</span><strong id="futureCount" style="color:var(--orange)">0</strong></article>
+<article class="summary-card"><span>NOL 일정</span><strong id="nolCount" style="color:var(--nol)">0</strong></article>
+<article class="summary-card"><span>티켓링크 일정</span><strong id="ticketCount" style="color:var(--ticket)">0</strong></article>
+</section>
+
+<section class="filter-card">
+<div class="filters">
+<input class="search" id="search" type="search" placeholder="구단, 상대팀, 구장 검색">
+<select id="monthFilter"><option value="">전체 월</option></select>
+<select id="statusFilter"><option value="">전체 상태</option><option value="open">예매중</option><option value="future">예매 예정</option></select>
+<select id="sourceFilter"><option value="">전체 예매처</option><option value="ticket">티켓링크</option><option value="nol">NOL 티켓</option></select>
+<select id="sortFilter"><option value="game">경기일 빠른 순</option><option value="booking">예매일 빠른 순</option></select>
+</div>
+<div class="status-pills">
+<button class="pill active" data-quick="all">전체</button><button class="pill" data-quick="open">예매중</button><button class="pill" data-quick="future">예매 예정</button><button class="pill" data-quick="today">오늘 오픈</button><button class="pill" data-quick="tomorrow">내일 오픈</button><button class="pill" data-quick="3">3일 이내</button><button class="pill" data-quick="7">7일 이내</button><button class="pill" data-quick="favorite">⭐ 관심경기</button>
+</div>
+</section>
+
+<div class="notice" id="notice">경기정보를 불러오는 중입니다.</div>
+
+<section class="table-card">
+<div class="table-top"><strong>통합 경기 일정</strong><span id="updatedText">데이터 확인 중</span></div>
+<div class="table-scroll"><table><thead><tr><th>관심</th><th>예매처</th><th>구단</th><th>경기일</th><th>시간</th><th>대진</th><th>구장</th><th>선예매</th><th>일반예매</th><th>상태</th><th>바로가기</th></tr></thead><tbody id="tbody"></tbody></table></div>
+</section>
+<div class="foot"><span>※ 예매처 데이터 갱신 시각에 따라 실제 예매 화면과 약간의 차이가 있을 수 있습니다.</span><span>통합 페이지 v1</span></div>
+</main>
+
+<script src="./data.js"></script>
+<script>
+const NOL_URL="https://leekwantae.github.io/nol-sports/games.json";
+const KST_OFFSET=9*60;
+let allEvents=[],selectedSource="all",selectedTeam="",quickFilter="all";
+const favorites=new Set(JSON.parse(localStorage.getItem("kboFavorites")||"[]"));
+
+function parseDate(v){if(!v)return null;const s=String(v).replace(" ","T");const d=new Date(s+(s.includes("Z")||/[+-]\d\d:\d\d$/.test(s)?"":"+09:00"));return isNaN(d)?null:d}
+function fmtDate(v){const d=parseDate(v+"T00:00:00");if(!d)return v||"-";return new Intl.DateTimeFormat("ko-KR",{month:"2-digit",day:"2-digit",weekday:"short",timeZone:"Asia/Seoul"}).format(d).replace(/\./g,".")}
+function fmtDT(v){const d=parseDate(v);if(!d)return "-";return new Intl.DateTimeFormat("ko-KR",{month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Seoul"}).format(d)}
+function nowKST(){return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Seoul"}))}
+function startDay(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+function statusOf(e){const open=parseDate(e.bookingOpen);return open&&open<=new Date()?"open":"future"}
+function normalizeTicket(e){return{source:"ticket",sourceName:"티켓링크",team:e.team||e.home||"",date:e.date||"",time:e.time||"",home:e.home||"",away:e.away||"",match:e.title||`${e.away||""} vs ${e.home||""}`,venue:e.venue||"",preOpen:"",bookingOpen:e.booking==="예매중"?"":e.booking||"",status:e.booking==="예매중"||String(e.reserveButtonStatus).toUpperCase()==="ON_SALE"?"open":"future",link:e.link||"https://www.ticketlink.co.kr/",id:"ticket-"+(e.id||e.scheduleId||[e.date,e.time,e.away,e.home].join("|"))}}
+function normalizeNol(g){return{source:"nol",sourceName:"NOL 티켓",team:g.sourceTeamName||g.homeTeam||"",date:g.playDate||"",time:g.playTime||"",home:g.homeTeam||"",away:g.awayTeam||"",match:g.goodsName||`${g.homeTeam||""} vs ${g.awayTeam||""}`,venue:g.placeName||"",preOpen:g.preBookingOpenTime||"",bookingOpen:g.bookingOpenTime||"",status:parseDate(g.bookingOpenTime)&&parseDate(g.bookingOpenTime)<=new Date()?"open":"future",link:g.sourcePage||"https://nol.yanolja.com/ticket/genre/sports",id:"nol-"+(g.goodsCode||[g.playDate,g.playTime,g.homeTeam,g.awayTeam].join("|"))}}
+async function loadData(){
+ const notice=document.getElementById("notice");notice.className="notice";notice.textContent="두 예매처의 경기정보를 불러오는 중입니다.";
+ const ticketRaw=window.SPORTS_DATA||{events:[],updatedAt:null};
+ let nolRaw={games:[],updatedAt:null};
+ let nolError="";
+ try{const r=await fetch(NOL_URL+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);nolRaw=await r.json()}catch(e){nolError=e.message}
+ const ticket=(ticketRaw.events||[]).map(normalizeTicket);
+ const nol=(nolRaw.games||[]).map(normalizeNol);
+ allEvents=[...ticket,...nol].filter(e=>e.date).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+ buildTeams();buildMonths();render();
+ const parts=[`티켓링크 ${ticket.length}건`,`NOL ${nol.length}건`];
+ if(nolError)parts.push("NOL 불러오기 실패: "+nolError);
+ notice.textContent=parts.join(" · ");
+ if(nolError)notice.classList.add("error");
+ const t=ticketRaw.updatedAt?fmtDT(ticketRaw.updatedAt):"-",n=nolRaw.updatedAt?fmtDT(nolRaw.updatedAt):"-";
+ document.getElementById("updatedText").textContent=`티켓링크 ${t} · NOL ${n}`;
+}
+function buildTeams(){
+ const map=new Map();
+ allEvents.forEach(e=>{if(e.team&&!map.has(e.team))map.set(e.team,e.source)});
+ const known=[["두산 베어스","nol"],["키움 히어로즈","nol"]];
+ known.forEach(([n,s])=>{if(!map.has(n))map.set(n,s)});
+ const box=document.getElementById("teamButtons");
+ box.innerHTML=`<button class="team active" data-team="" data-source="all"><span class="badge all">통합</span><strong>전체 구단</strong></button>`+
+ [...map.entries()].sort((a,b)=>a[1]===b[1]?a[0].localeCompare(b[0]):a[1]==="nol"?-1:1).map(([name,source])=>`<button class="team" data-team="${name}" data-source="${source}"><span class="badge ${source}">${source==="nol"?"NOL":"티켓링크"}</span><strong>${name}</strong></button>`).join("");
+ box.querySelectorAll(".team").forEach(b=>b.onclick=()=>{selectedTeam=b.dataset.team;box.querySelectorAll(".team").forEach(x=>x.classList.remove("active"));b.classList.add("active");render()});
+}
+function buildMonths(){
+ const months=[...new Set(allEvents.map(e=>e.date.slice(0,7)))].sort(),sel=document.getElementById("monthFilter");
+ sel.innerHTML='<option value="">전체 월</option>'+months.map(m=>`<option value="${m}">${Number(m.slice(5))}월</option>`).join("");
+}
+function isQuick(e){
+ if(quickFilter==="all")return true;if(quickFilter==="favorite")return favorites.has(e.id);
+ const st=e.status||statusOf(e);if(quickFilter==="open"||quickFilter==="future")return st===quickFilter;
+ const open=parseDate(e.bookingOpen);if(!open)return false;const diff=Math.floor((startDay(open)-startDay(nowKST()))/86400000);
+ if(quickFilter==="today")return diff===0;if(quickFilter==="tomorrow")return diff===1;
+ return diff>=0&&diff<=Number(quickFilter);
+}
+function filtered(){
+ const q=document.getElementById("search").value.trim().toLowerCase(),month=document.getElementById("monthFilter").value,status=document.getElementById("statusFilter").value,source=document.getElementById("sourceFilter").value;
+ let arr=allEvents.filter(e=>(selectedSource==="all"||e.source===selectedSource)&&(!selectedTeam||e.team===selectedTeam)&&(!source||e.source===source)&&(!month||e.date.startsWith(month))&&(!status||e.status===status)&&(!q||[e.team,e.home,e.away,e.match,e.venue].join(" ").toLowerCase().includes(q))&&isQuick(e));
+ const sort=document.getElementById("sortFilter").value;
+ arr.sort((a,b)=>sort==="booking"?((a.bookingOpen||"9999").localeCompare(b.bookingOpen||"9999")):((a.date+a.time).localeCompare(b.date+b.time)));
+ return arr;
+}
+function render(){
+ const arr=filtered(),tb=document.getElementById("tbody");
+ tb.innerHTML=arr.length?arr.map(e=>`<tr><td><button class="star" data-id="${e.id}">${favorites.has(e.id)?"★":"☆"}</button></td><td><span class="source-label ${e.source}">${e.sourceName}</span></td><td>${e.team||"-"}</td><td>${fmtDate(e.date)}</td><td>${e.time||"-"}</td><td class="match">${e.away&&e.home?`${e.away} vs ${e.home}`:e.match}</td><td>${e.venue||"-"}</td><td>${fmtDT(e.preOpen)}</td><td>${e.status==="open"?"예매중":fmtDT(e.bookingOpen)}</td><td><span class="state ${e.status}">${e.status==="open"?"예매중":"예매 예정"}</span></td><td><a class="reserve" href="${e.link}" target="_blank" rel="noopener">바로가기</a></td></tr>`).join(""):`<tr><td colspan="11" class="empty">조건에 맞는 일정이 없습니다.</td></tr>`;
+ tb.querySelectorAll(".star").forEach(b=>b.onclick=()=>{favorites.has(b.dataset.id)?favorites.delete(b.dataset.id):favorites.add(b.dataset.id);localStorage.setItem("kboFavorites",JSON.stringify([...favorites]));render()});
+ document.getElementById("totalCount").textContent=allEvents.length;
+ document.getElementById("openCount").textContent=allEvents.filter(e=>e.status==="open").length;
+ document.getElementById("futureCount").textContent=allEvents.filter(e=>e.status==="future").length;
+ document.getElementById("nolCount").textContent=allEvents.filter(e=>e.source==="nol").length;
+ document.getElementById("ticketCount").textContent=allEvents.filter(e=>e.source==="ticket").length;
+}
+document.querySelectorAll(".source-tab").forEach(tab=>tab.onclick=()=>{selectedSource=tab.dataset.source;document.querySelectorAll(".source-tab").forEach(x=>x.classList.remove("active"));tab.classList.add("active");document.getElementById("sourceFilter").value=selectedSource==="all"?"":selectedSource;render()});
+["search","monthFilter","statusFilter","sourceFilter","sortFilter"].forEach(id=>document.getElementById(id).addEventListener(id==="search"?"input":"change",render));
+document.querySelectorAll(".pill").forEach(b=>b.onclick=()=>{quickFilter=b.dataset.quick;document.querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));b.classList.add("active");render()});
+document.getElementById("reloadBtn").onclick=()=>location.reload();
+document.getElementById("strongReloadBtn").onclick=async()=>{if("serviceWorker"in navigator){const regs=await navigator.serviceWorker.getRegistrations();await Promise.all(regs.map(r=>r.unregister()))}if("caches"in window){const keys=await caches.keys();await Promise.all(keys.map(k=>caches.delete(k)))}location.href=location.pathname+"?v="+Date.now()};
+loadData();
+</script>
+</body>
+</html>
