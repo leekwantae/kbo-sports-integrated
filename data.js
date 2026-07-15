@@ -9,7 +9,7 @@ window.SPORTS_DATA = {
     {
       "team": "LG트윈스",
       "success": true,
-      "count": 0,
+      "count": 12,
       "checkedAt": "2026-07-16T05:17:53+09:00",
       "message": "API 조회 성공"
     },
