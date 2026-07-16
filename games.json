@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-16T01:11:14.195580+00:00",
-  "totalElements": 16,
+  "updatedAt": "2026-07-16T07:49:10.315345+00:00",
+  "totalElements": 19,
   "sources": [
     {
       "key": "bears",
@@ -12,7 +12,7 @@
       "key": "heroes",
       "name": "키움 히어로즈",
       "pageUrl": "https://nol.yanolja.com/ticket/genre/sports/heroes",
-      "count": 6
+      "count": 9
     }
   ],
   "games": [
@@ -317,6 +317,26 @@
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004556_p.gif"
     },
     {
+      "sourceTeamKey": "heroes",
+      "sourceTeamName": "키움 히어로즈",
+      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/heroes",
+      "goodsCode": "26004286",
+      "goodsName": "키움 vs LG (8.11)",
+      "playDate": "2026-08-11",
+      "playTime": "18:30",
+      "homeTeam": "키움 히어로즈",
+      "homeTeamCode": "PB003",
+      "awayTeam": "LG 트윈스",
+      "awayTeamCode": "PB008",
+      "placeName": "고척스카이돔",
+      "bookingOpenTime": "2026-08-04T14:00:00",
+      "bookingEndTime": "2026-08-11T19:30:00",
+      "preBookingName": "팬클럽 선예매",
+      "preBookingOpenTime": "2026-08-04 11:00:00",
+      "preBookingEndTime": "2026-08-04 13:59:00",
+      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004286_p.gif"
+    },
+    {
       "sourceTeamKey": "bears",
       "sourceTeamName": "두산 베어스",
       "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/bears",
@@ -335,6 +355,46 @@
       "preBookingOpenTime": null,
       "preBookingEndTime": null,
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004557_p.gif"
+    },
+    {
+      "sourceTeamKey": "heroes",
+      "sourceTeamName": "키움 히어로즈",
+      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/heroes",
+      "goodsCode": "26004287",
+      "goodsName": "키움 vs LG (8.12)",
+      "playDate": "2026-08-12",
+      "playTime": "18:30",
+      "homeTeam": "키움 히어로즈",
+      "homeTeamCode": "PB003",
+      "awayTeam": "LG 트윈스",
+      "awayTeamCode": "PB008",
+      "placeName": "고척스카이돔",
+      "bookingOpenTime": "2026-08-05T14:00:00",
+      "bookingEndTime": "2026-08-12T19:30:00",
+      "preBookingName": "팬클럽 선예매",
+      "preBookingOpenTime": "2026-08-05 11:00:00",
+      "preBookingEndTime": "2026-08-05 13:59:00",
+      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004287_p.gif"
+    },
+    {
+      "sourceTeamKey": "heroes",
+      "sourceTeamName": "키움 히어로즈",
+      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/heroes",
+      "goodsCode": "26004288",
+      "goodsName": "키움 vs LG (8.13)",
+      "playDate": "2026-08-13",
+      "playTime": "18:30",
+      "homeTeam": "키움 히어로즈",
+      "homeTeamCode": "PB003",
+      "awayTeam": "LG 트윈스",
+      "awayTeamCode": "PB008",
+      "placeName": "고척스카이돔",
+      "bookingOpenTime": "2026-08-06T14:00:00",
+      "bookingEndTime": "2026-08-13T19:30:00",
+      "preBookingName": "팬클럽 선예매",
+      "preBookingOpenTime": "2026-08-06 11:00:00",
+      "preBookingEndTime": "2026-08-06 13:59:00",
+      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004288_p.gif"
     }
   ]
 }
