@@ -1,6 +1,7 @@
-  from __future__ import annotations
+from __future__ import annotations
 
 import json
+import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -11,6 +12,7 @@ CONFIG = json.loads(
     (ROOT / "sources.json").read_text(encoding="utf-8")
 )
 
+API = "https://mapi.ticketlink.co.kr/mapi/sports/schedules"
 KST = timezone(timedelta(hours=9), name="KST")
 
 
@@ -21,14 +23,10 @@ def ms_to_dt(value: Any):
     try:
         number = int(value)
 
-        # 초 단위 값이 들어온 경우 밀리초로 변환
         if number < 100_000_000_000:
             number *= 1000
 
-        return datetime.fromtimestamp(
-            number / 1000,
-            KST
-        )
+        return datetime.fromtimestamp(number / 1000, KST)
 
     except Exception:
         return None
@@ -71,21 +69,44 @@ def fetch_json(url: str) -> Any:
         timeout=40
     ) as response:
 
-        text = response.read().decode(
+        response_text = response.read().decode(
             "utf-8",
             errors="replace"
         )
 
-        return json.loads(text)
+        print(f"HTTP 상태: {response.status}")
+        print(f"응답 길이: {len(response_text)}자")
+        print("응답 앞부분:")
+        print(response_text[:1000])
+
+        return json.loads(response_text)
+
+
+def find_schedules(payload: Any) -> list:
+    if not isinstance(payload, dict):
+        return []
+
+    data = payload.get("data")
+
+    if isinstance(data, dict):
+        schedules = data.get("schedules")
+
+        if isinstance(schedules, list):
+            return schedules
+
+    schedules = payload.get("schedules")
+
+    if isinstance(schedules, list):
+        return schedules
+
+    return []
 
 
 def parse_item(
     item: dict[str, Any],
-    source: dict[str, Any],
+    source: dict[str, Any]
 ):
-    game = ms_to_dt(
-        item.get("scheduleDate")
-    )
+    game = ms_to_dt(item.get("scheduleDate"))
 
     if not game:
         return None
@@ -104,12 +125,7 @@ def parse_item(
     if status == "ON_SALE":
         booking = "예매중"
     elif reserve:
-        if datetime.now(KST) >= reserve:
-            booking = "예매중"
-        else:
-            booking = reserve.strftime(
-                "%Y-%m-%d %H:%M"
-            )
+        booking = reserve.strftime("%Y-%m-%d %H:%M")
     else:
         booking = ""
 
@@ -118,47 +134,14 @@ def parse_item(
         or ""
     )
 
-    away = team_name(
-        item.get("awayTeam")
-    )
-
-    home = team_name(
-        item.get("homeTeam")
-    )
-
-    # 해당 구단의 홈경기만 사용
-    source_team_id = str(
-        source.get("teamId")
-        or ""
-    )
-
-    home_team_id = str(
-        (
-            item.get("homeTeam")
-            or {}
-        ).get("teamId")
-        or ""
-    )
-
-    if (
-        source_team_id
-        and home_team_id
-        and source_team_id != home_team_id
-    ):
-        return None
+    away = team_name(item.get("awayTeam"))
+    home = team_name(item.get("homeTeam"))
 
     event = {
-        "sport": source.get(
-            "sport",
-            "baseball"
-        ),
+        "sport": source.get("sport", "baseball"),
         "team": source["team"],
-        "date": game.strftime(
-            "%Y-%m-%d"
-        ),
-        "time": game.strftime(
-            "%H:%M"
-        ),
+        "date": game.strftime("%Y-%m-%d"),
+        "time": game.strftime("%H:%M"),
         "away": away,
         "home": home,
         "venue": str(
@@ -174,24 +157,13 @@ def parse_item(
             or ""
         ).strip(),
         "booking": booking,
-        "reserveOpenDateTime": (
-            reserve.strftime(
-                "%Y-%m-%d %H:%M"
-            )
-            if reserve
-            else ""
-        ),
         "reserveButtonStatus": status,
         "scheduleId": schedule_id,
         "productId": str(
             item.get("productId")
             or ""
         ),
-        "link": source.get(
-            "pageUrl",
-            ""
-        ),
-        "bookingSite": "티켓링크",
+        "link": source.get("pageUrl", "")
     }
 
     event["id"] = (
@@ -202,7 +174,7 @@ def parse_item(
                 event["time"],
                 away,
                 home,
-                event["venue"],
+                event["venue"]
             ]
         )
     )
@@ -211,66 +183,80 @@ def parse_item(
 
 
 def main():
+    now = datetime.now(KST)
+    end = now + timedelta(
+        days=int(CONFIG.get("rangeDays", 92))
+    )
+
     all_events = []
     source_status = []
 
-    for source in CONFIG.get(
-        "sources",
-        []
-    ):
+    for source in CONFIG.get("sources", []):
+        params = urllib.parse.urlencode(
+            {
+                "categoryId": source["categoryId"],
+                "teamId": source["teamId"],
+                "startDate": now.strftime("%Y%m%d"),
+                "endDate": end.strftime("%Y%m%d")
+            }
+        )
+
+        url = f"{API}?{params}"
+
+        print("")
+        print("=" * 70)
+        print(f'구단: {source["team"]}')
+        print(f"요청 주소: {url}")
+        print("=" * 70)
+
         status = {
             "team": source["team"],
             "success": False,
             "count": 0,
-            "checkedAt": datetime.now(
-                KST
-            ).isoformat(
+            "checkedAt": datetime.now(KST).isoformat(
                 timespec="seconds"
             ),
-            "message": "",
+            "message": ""
         }
 
         try:
-            # sources.json에 저장된 긴 URL 사용
-            url = str(
-                source.get("apiUrl")
-                or ""
-            ).strip()
-
-            if not url:
-                raise RuntimeError(
-                    "sources.json에 apiUrl이 없습니다."
-                )
-
             payload = fetch_json(url)
 
-            schedules = (
-                payload.get("data", {})
-                .get("schedules", [])
+            print(
+                "최상위 키:",
+                list(payload.keys())
+                if isinstance(payload, dict)
+                else type(payload)
             )
 
-            if not isinstance(
-                schedules,
-                list
-            ):
-                raise RuntimeError(
-                    "data.schedules 배열이 없습니다."
-                )
+            schedules = find_schedules(payload)
+
+            print(f"schedules 원본 건수: {len(schedules)}")
+
+            # 구단별 원본 응답 저장
+            debug_name = (
+                "debug_"
+                + str(source["teamId"])
+                + ".json"
+            )
+
+            (ROOT / debug_name).write_text(
+                json.dumps(
+                    payload,
+                    ensure_ascii=False,
+                    indent=2
+                ),
+                encoding="utf-8"
+            )
 
             events = []
             seen = set()
 
             for item in schedules:
-                if not isinstance(
-                    item,
-                    dict
-                ):
+                if not isinstance(item, dict):
                     continue
 
-                event = parse_item(
-                    item,
-                    source
-                )
+                event = parse_item(item, source)
 
                 if not event:
                     continue
@@ -278,47 +264,32 @@ def main():
                 if event["id"] in seen:
                     continue
 
-                seen.add(
-                    event["id"]
-                )
+                seen.add(event["id"])
+                events.append(event)
 
-                events.append(
-                    event
-                )
-
-            all_events.extend(
-                events
-            )
+            all_events.extend(events)
 
             status["success"] = True
-            status["count"] = len(
-                events
-            )
+            status["count"] = len(events)
             status["message"] = (
-                f"API 조회 성공: "
                 f"원본 {len(schedules)}건, "
-                f"홈경기 {len(events)}건"
+                f"변환 {len(events)}건"
             )
 
             print(
                 f'{source["team"]}: '
                 f'원본 {len(schedules)}건 / '
-                f'홈경기 {len(events)}건'
+                f'변환 {len(events)}건'
             )
 
         except Exception as exc:
-            status["message"] = str(
-                exc
-            )
+            status["message"] = str(exc)
 
             print(
-                f'{source["team"]}: '
-                f'실패 - {exc}'
+                f'{source["team"]}: 오류 - {exc}'
             )
 
-        source_status.append(
-            status
-        )
+        source_status.append(status)
 
     dedup = {}
 
@@ -335,34 +306,37 @@ def main():
         key=lambda event: (
             f'{event.get("date", "")}'
             f'T{event.get("time", "00:00")}'
-        ),
+        )
     )
 
-    payload = {
-        "updatedAt": datetime.now(
-            KST
-        ).isoformat(
+    output = {
+        "updatedAt": datetime.now(KST).isoformat(
             timespec="seconds"
         ),
+        "queryRange": {
+            "startDate": now.strftime("%Y-%m-%d"),
+            "endDate": end.strftime("%Y-%m-%d"),
+            "rangeDays": int(
+                CONFIG.get("rangeDays", 92)
+            )
+        },
         "sourceStatus": source_status,
-        "events": events,
+        "events": events
     }
 
     (ROOT / "data.js").write_text(
         "window.SPORTS_DATA = "
         + json.dumps(
-            payload,
+            output,
             ensure_ascii=False,
-            indent=2,
+            indent=2
         )
         + ";\n",
-        encoding="utf-8",
+        encoding="utf-8"
     )
 
-    print(
-        f"티켓링크 총 "
-        f"{len(events)}건 생성"
-    )
+    print("")
+    print(f"티켓링크 총 {len(events)}건 생성")
 
 
 if __name__ == "__main__":
