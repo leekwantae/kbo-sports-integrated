@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-21T09:37:26.732658+00:00",
-  "totalElements": 19,
+  "updatedAt": "2026-07-21T17:01:12.682646+00:00",
+  "totalElements": 18,
   "sources": [
     {
       "key": "bears",
@@ -12,30 +12,10 @@
       "key": "heroes",
       "name": "키움 히어로즈",
       "pageUrl": "https://nol.yanolja.com/ticket/genre/sports/heroes",
-      "count": 9
+      "count": 8
     }
   ],
   "games": [
-    {
-      "sourceTeamKey": "heroes",
-      "sourceTeamName": "키움 히어로즈",
-      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/heroes",
-      "goodsCode": "26004280",
-      "goodsName": "키움 vs 삼성 (7.21)",
-      "playDate": "2026-07-21",
-      "playTime": "18:30",
-      "homeTeam": "키움 히어로즈",
-      "homeTeamCode": "PB003",
-      "awayTeam": "삼성 라이온즈",
-      "awayTeamCode": "PB005",
-      "placeName": "고척스카이돔",
-      "bookingOpenTime": "2026-07-14T14:00:00",
-      "bookingEndTime": "2026-07-21T19:30:00",
-      "preBookingName": "팬클럽 선예매",
-      "preBookingOpenTime": "2026-07-14 11:00:00",
-      "preBookingEndTime": "2026-07-14 13:59:00",
-      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004280_p.gif"
-    },
     {
       "sourceTeamKey": "heroes",
       "sourceTeamName": "키움 히어로즈",
