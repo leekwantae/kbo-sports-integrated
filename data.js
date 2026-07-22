@@ -1,5 +1,5 @@
 window.SPORTS_DATA = {
-  "updatedAt": "2026-07-23T02:01:49+09:00",
+  "updatedAt": "2026-07-23T08:43:09+09:00",
   "queryRange": {
     "startDate": "2026-07-23",
     "endDate": "2026-10-23",
@@ -10,42 +10,42 @@ window.SPORTS_DATA = {
       "team": "LG트윈스",
       "success": true,
       "count": 18,
-      "checkedAt": "2026-07-23T02:01:36+09:00",
+      "checkedAt": "2026-07-23T08:42:59+09:00",
       "message": "원본 18건, 변환 18건"
     },
     {
       "team": "한화이글스",
       "success": true,
       "count": 27,
-      "checkedAt": "2026-07-23T02:01:39+09:00",
+      "checkedAt": "2026-07-23T08:43:01+09:00",
       "message": "원본 27건, 변환 27건"
     },
     {
       "team": "삼성라이온즈",
       "success": true,
       "count": 20,
-      "checkedAt": "2026-07-23T02:01:42+09:00",
+      "checkedAt": "2026-07-23T08:43:03+09:00",
       "message": "원본 20건, 변환 20건"
     },
     {
       "team": "KT wiz",
       "success": true,
       "count": 16,
-      "checkedAt": "2026-07-23T02:01:44+09:00",
+      "checkedAt": "2026-07-23T08:43:05+09:00",
       "message": "원본 16건, 변환 16건"
     },
     {
       "team": "KIA타이거즈",
       "success": true,
       "count": 24,
-      "checkedAt": "2026-07-23T02:01:46+09:00",
+      "checkedAt": "2026-07-23T08:43:07+09:00",
       "message": "원본 24건, 변환 24건"
     },
     {
       "team": "울산웨일즈",
       "success": true,
       "count": 9,
-      "checkedAt": "2026-07-23T02:01:48+09:00",
+      "checkedAt": "2026-07-23T08:43:08+09:00",
       "message": "원본 9건, 변환 9건"
     }
   ],
