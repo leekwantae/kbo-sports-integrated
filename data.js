@@ -1,8 +1,8 @@
 window.SPORTS_DATA = {
-  "updatedAt": "2026-07-22T18:37:22+09:00",
+  "updatedAt": "2026-07-23T02:01:49+09:00",
   "queryRange": {
-    "startDate": "2026-07-22",
-    "endDate": "2026-10-22",
+    "startDate": "2026-07-23",
+    "endDate": "2026-10-23",
     "rangeDays": 92
   },
   "sourceStatus": [
@@ -10,97 +10,46 @@ window.SPORTS_DATA = {
       "team": "LG트윈스",
       "success": true,
       "count": 18,
-      "checkedAt": "2026-07-22T18:37:12+09:00",
+      "checkedAt": "2026-07-23T02:01:36+09:00",
       "message": "원본 18건, 변환 18건"
     },
     {
       "team": "한화이글스",
       "success": true,
       "count": 27,
-      "checkedAt": "2026-07-22T18:37:14+09:00",
+      "checkedAt": "2026-07-23T02:01:39+09:00",
       "message": "원본 27건, 변환 27건"
     },
     {
       "team": "삼성라이온즈",
       "success": true,
-      "count": 21,
-      "checkedAt": "2026-07-22T18:37:16+09:00",
-      "message": "원본 21건, 변환 21건"
+      "count": 20,
+      "checkedAt": "2026-07-23T02:01:42+09:00",
+      "message": "원본 20건, 변환 20건"
     },
     {
       "team": "KT wiz",
       "success": true,
       "count": 16,
-      "checkedAt": "2026-07-22T18:37:18+09:00",
+      "checkedAt": "2026-07-23T02:01:44+09:00",
       "message": "원본 16건, 변환 16건"
     },
     {
       "team": "KIA타이거즈",
       "success": true,
       "count": 24,
-      "checkedAt": "2026-07-22T18:37:19+09:00",
+      "checkedAt": "2026-07-23T02:01:46+09:00",
       "message": "원본 24건, 변환 24건"
     },
     {
       "team": "울산웨일즈",
       "success": true,
       "count": 9,
-      "checkedAt": "2026-07-22T18:37:21+09:00",
+      "checkedAt": "2026-07-23T02:01:48+09:00",
       "message": "원본 9건, 변환 9건"
     }
   ],
   "events": [
-    {
-      "sport": "baseball",
-      "team": "삼성라이온즈",
-      "date": "2026-07-22",
-      "time": "18:00",
-      "away": "두산베어스",
-      "home": "삼성 라이온즈",
-      "venue": "대구 삼성라이온즈파크",
-      "title": "퓨처스리그",
-      "league": "2026 메디힐 KBO 퓨처스리그",
-      "booking": "예매중",
-      "reserveButtonStatus": "ON_SALE",
-      "scheduleId": "1266392222",
-      "productId": "64377",
-      "link": "https://www.ticketlink.co.kr/sports/137/57",
-      "id": "1266392222"
-    },
-    {
-      "sport": "baseball",
-      "team": "LG트윈스",
-      "date": "2026-07-22",
-      "time": "18:30",
-      "away": "NC 다이노스",
-      "home": "LG트윈스",
-      "venue": "잠실야구장",
-      "title": "",
-      "league": "2026 신한 SOL KBO 리그",
-      "booking": "예매중",
-      "reserveButtonStatus": "ON_SALE",
-      "scheduleId": "1998451860",
-      "productId": "61881",
-      "link": "https://www.ticketlink.co.kr/sports/137/59",
-      "id": "1998451860"
-    },
-    {
-      "sport": "baseball",
-      "team": "KIA타이거즈",
-      "date": "2026-07-22",
-      "time": "18:30",
-      "away": "한화이글스",
-      "home": "KIA 타이거즈",
-      "venue": "KIA 챔피언스필드",
-      "title": "",
-      "league": "2026 신한 SOL KBO 리그",
-      "booking": "예매중",
-      "reserveButtonStatus": "ON_SALE",
-      "scheduleId": "687116646",
-      "productId": "62036",
-      "link": "https://www.ticketlink.co.kr/sports/137/58",
-      "id": "687116646"
-    },
     {
       "sport": "baseball",
       "team": "삼성라이온즈",
@@ -1392,6 +1341,40 @@ window.SPORTS_DATA = {
       "productId": "62162",
       "link": "https://www.ticketlink.co.kr/sports/137/63",
       "id": "393065532"
+    },
+    {
+      "sport": "baseball",
+      "team": "KIA타이거즈",
+      "date": "2026-08-22",
+      "time": "14:00",
+      "away": "",
+      "home": "KIA 타이거즈",
+      "venue": "KIA 챔피언스필드",
+      "title": "광주-기아 챔피언스필드 팬투어",
+      "league": "2026 신한 SOL KBO 리그",
+      "booking": "2026-08-15 12:00",
+      "reserveButtonStatus": "BEFORE",
+      "scheduleId": "116942948",
+      "productId": "62005",
+      "link": "https://www.ticketlink.co.kr/sports/137/58",
+      "id": "116942948"
+    },
+    {
+      "sport": "baseball",
+      "team": "한화이글스",
+      "date": "2026-08-22",
+      "time": "18:00",
+      "away": "LG트윈스",
+      "home": "한화이글스",
+      "venue": "대전 한화생명 볼파크",
+      "title": "4구간",
+      "league": "2026 신한 SOL KBO 리그",
+      "booking": "2026-08-15 11:00",
+      "reserveButtonStatus": "BEFORE",
+      "scheduleId": "1644138620",
+      "productId": "62162",
+      "link": "https://www.ticketlink.co.kr/sports/137/63",
+      "id": "1644138620"
     }
   ]
 };
