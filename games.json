@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-04T23:44:38.484350+00:00",
+  "updatedAt": "2026-08-05T10:14:42.089608+00:00",
   "totalElements": 19,
   "sources": [
     {
@@ -16,46 +16,6 @@
     }
   ],
   "games": [
-    {
-      "sourceTeamKey": "bears",
-      "sourceTeamName": "두산 베어스",
-      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/bears",
-      "goodsCode": "26004555",
-      "goodsName": "두산 vs NC (8.5)",
-      "playDate": "2026-08-05",
-      "playTime": "18:30",
-      "homeTeam": "두산베어스",
-      "homeTeamCode": "PB004",
-      "awayTeam": "NC 다이노스",
-      "awayTeamCode": "PB009",
-      "placeName": "잠실야구장",
-      "bookingOpenTime": "2026-07-29T11:00:00",
-      "bookingEndTime": "2026-08-05T19:30:59",
-      "preBookingName": null,
-      "preBookingOpenTime": null,
-      "preBookingEndTime": null,
-      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004555_p.gif"
-    },
-    {
-      "sourceTeamKey": "bears",
-      "sourceTeamName": "두산 베어스",
-      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/bears",
-      "goodsCode": "26004556",
-      "goodsName": "두산 vs NC (8.6)",
-      "playDate": "2026-08-06",
-      "playTime": "18:30",
-      "homeTeam": "두산베어스",
-      "homeTeamCode": "PB004",
-      "awayTeam": "NC 다이노스",
-      "awayTeamCode": "PB009",
-      "placeName": "잠실야구장",
-      "bookingOpenTime": "2026-07-30T11:00:00",
-      "bookingEndTime": "2026-08-06T19:30:59",
-      "preBookingName": null,
-      "preBookingOpenTime": null,
-      "preBookingEndTime": null,
-      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004556_p.gif"
-    },
     {
       "sourceTeamKey": "heroes",
       "sourceTeamName": "키움 히어로즈",
@@ -395,6 +355,46 @@
       "preBookingOpenTime": null,
       "preBookingEndTime": null,
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004564_p.gif"
+    },
+    {
+      "sourceTeamKey": "bears",
+      "sourceTeamName": "두산 베어스",
+      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/bears",
+      "goodsCode": "26004565",
+      "goodsName": "두산 vs 키움 (8.30)",
+      "playDate": "2026-08-30",
+      "playTime": "18:00",
+      "homeTeam": "두산베어스",
+      "homeTeamCode": "PB004",
+      "awayTeam": "키움 히어로즈",
+      "awayTeamCode": "PB003",
+      "placeName": "잠실야구장",
+      "bookingOpenTime": "2026-08-23T11:00:00",
+      "bookingEndTime": "2026-08-30T19:00:59",
+      "preBookingName": null,
+      "preBookingOpenTime": null,
+      "preBookingEndTime": null,
+      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004565_p.gif"
+    },
+    {
+      "sourceTeamKey": "bears",
+      "sourceTeamName": "두산 베어스",
+      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/bears",
+      "goodsCode": "26004566",
+      "goodsName": "두산 vs LG (9.1)",
+      "playDate": "2026-09-01",
+      "playTime": "18:30",
+      "homeTeam": "두산베어스",
+      "homeTeamCode": "PB004",
+      "awayTeam": "LG 트윈스",
+      "awayTeamCode": "PB008",
+      "placeName": "잠실야구장",
+      "bookingOpenTime": "2026-08-25T11:00:00",
+      "bookingEndTime": "2026-09-01T19:30:59",
+      "preBookingName": null,
+      "preBookingOpenTime": null,
+      "preBookingEndTime": null,
+      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004566_p.gif"
     }
   ]
 }
