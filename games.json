@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-07T00:55:12.604439+00:00",
-  "totalElements": 19,
+  "updatedAt": "2026-08-07T05:49:48.697677+00:00",
+  "totalElements": 20,
   "sources": [
     {
       "key": "bears",
@@ -12,7 +12,7 @@
       "key": "heroes",
       "name": "키움 히어로즈",
       "pageUrl": "https://nol.yanolja.com/ticket/genre/sports/heroes",
-      "count": 9
+      "count": 10
     }
   ],
   "games": [
@@ -375,6 +375,26 @@
       "preBookingOpenTime": null,
       "preBookingEndTime": null,
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004565_p.gif"
+    },
+    {
+      "sourceTeamKey": "heroes",
+      "sourceTeamName": "키움 히어로즈",
+      "sourcePage": "https://nol.yanolja.com/ticket/genre/sports/heroes",
+      "goodsCode": "26004295",
+      "goodsName": "키움 vs SSG (9.1)",
+      "playDate": "2026-09-01",
+      "playTime": "19:00",
+      "homeTeam": "키움 히어로즈",
+      "homeTeamCode": "PB003",
+      "awayTeam": "SSG 랜더스",
+      "awayTeamCode": "PB002",
+      "placeName": "고척스카이돔",
+      "bookingOpenTime": "2026-08-25T14:00:00",
+      "bookingEndTime": "2026-09-01T20:00:59",
+      "preBookingName": "팬클럽 선예매",
+      "preBookingOpenTime": "2026-08-25 11:00:00",
+      "preBookingEndTime": "2026-08-25 13:59:59",
+      "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004295_p.gif"
     },
     {
       "sourceTeamKey": "bears",
