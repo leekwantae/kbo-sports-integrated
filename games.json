@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T21:02:25.474351+00:00",
+  "updatedAt": "2026-08-13T02:46:05.340508+00:00",
   "totalElements": 20,
   "sources": [
     {
@@ -33,7 +33,7 @@
       "bookingEndTime": "2026-08-13T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-06 11:00:00",
-      "preBookingEndTime": "2026-08-06 13:59:59",
+      "preBookingEndTime": "2026-08-06 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004288_p.gif"
     },
     {
@@ -73,7 +73,7 @@
       "bookingEndTime": "2026-08-21T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-14 11:00:00",
-      "preBookingEndTime": "2026-08-14 13:59:59",
+      "preBookingEndTime": "2026-08-14 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004289_p.gif"
     },
     {
@@ -113,7 +113,7 @@
       "bookingEndTime": "2026-08-22T19:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-15 11:00:00",
-      "preBookingEndTime": "2026-08-15 13:59:59",
+      "preBookingEndTime": "2026-08-15 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004290_p.gif"
     },
     {
@@ -153,7 +153,7 @@
       "bookingEndTime": "2026-08-23T15:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-16 11:00:00",
-      "preBookingEndTime": "2026-08-16 13:59:59",
+      "preBookingEndTime": "2026-08-16 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004291_p.gif"
     },
     {
@@ -193,7 +193,7 @@
       "bookingEndTime": "2026-08-25T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-18 11:00:00",
-      "preBookingEndTime": "2026-08-18 13:59:59",
+      "preBookingEndTime": "2026-08-18 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004292_p.gif"
     },
     {
@@ -213,7 +213,7 @@
       "bookingEndTime": "2026-08-26T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-19 11:00:00",
-      "preBookingEndTime": "2026-08-19 13:59:59",
+      "preBookingEndTime": "2026-08-19 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004293_p.gif"
     },
     {
@@ -233,7 +233,7 @@
       "bookingEndTime": "2026-08-27T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-20 11:00:00",
-      "preBookingEndTime": "2026-08-20 13:59:59",
+      "preBookingEndTime": "2026-08-20 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004294_p.gif"
     },
     {
@@ -313,7 +313,7 @@
       "bookingEndTime": "2026-09-01T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-25 11:00:00",
-      "preBookingEndTime": "2026-08-25 13:59:59",
+      "preBookingEndTime": "2026-08-25 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004295_p.gif"
     },
     {
@@ -353,7 +353,7 @@
       "bookingEndTime": "2026-09-02T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-26 11:00:00",
-      "preBookingEndTime": "2026-08-26 13:59:59",
+      "preBookingEndTime": "2026-08-26 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004296_p.gif"
     },
     {
@@ -393,7 +393,7 @@
       "bookingEndTime": "2026-09-03T20:00:59",
       "preBookingName": "팬클럽 선예매",
       "preBookingOpenTime": "2026-08-27 11:00:00",
-      "preBookingEndTime": "2026-08-27 13:59:59",
+      "preBookingEndTime": "2026-08-27 13:59:00",
       "posterImageUrl": "https://ticketimage.interpark.com/Play/image/large/26/26004297_p.gif"
     },
     {
